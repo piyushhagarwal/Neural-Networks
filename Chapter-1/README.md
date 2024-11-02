@@ -116,3 +116,27 @@ $
 **Behavior in the Limit**: In the limit as $c \to \infty$, the sigmoid neuron behaves exactly like a perceptron, outputting 1 when $w \cdot x + b > 0$ and 0 when $w \cdot x + b < 0$. Therefore, the network of sigmoid neurons will behave identically to the original network of perceptrons.
 
 **Failure Condition**: If $w \cdot x + b = 0$ for some perceptron, then $c(w \cdot x + b) = 0$ regardless of \( c \). In this case, $\sigma(0) = 0.5$, which does not correspond to either 0 or 1 as in a perceptron. Thus, the sigmoid neuron’s output does not match the perceptron’s, and the behavior of the network may differ.
+
+## The architecture of neural networks
+
+### Neural Network Layers
+
+1. **Input Layer**: This layer receives the initial data. For image processing, like recognizing a handwritten digit, each pixel of an image (e.g., a 64x64 greyscale image with 4,096 pixels) is represented as an input neuron. Pixel intensities are typically scaled between 0 and 1 to match the network's range of values.
+
+2. **Output Layer**: The final layer, which provides the result of the neural network's computation. For binary classification, a single neuron in the output layer can represent the probability that the input belongs to one class (e.g., "9") or another (e.g., "not a 9").
+
+3. **Hidden Layers**: Layers between the input and output layers that process and transform data. The complexity of the hidden layers is key to enabling the network to capture intricate patterns in data. Hidden layers allow networks to learn multiple levels of abstraction, with each layer capturing increasingly complex features. Although their structure can be challenging to design, these layers are essential for deep learning, where multiple hidden layers contribute to the model’s ability to recognize complex patterns.
+
+### Types of Neural Networks
+
+1. **Feedforward Neural Networks**: In these networks, data flows one way—from input to output—without looping back. This straightforward structure is powerful for many tasks, and the lack of loops simplifies the network’s mathematical and computational properties, making it easier to train with backpropagation.
+
+2. **Recurrent Neural Networks (RNNs)**: RNNs introduce feedback loops, allowing information from one step to influence future steps. They are particularly suited to tasks with temporal or sequential data, such as language processing. In RNNs, neurons can influence future outputs without immediate feedback, which models sequences more closely to how the human brain works.
+
+### Designing a Network
+
+The structure of the input and output layers often follows directly from the data and task at hand (e.g., number of input pixels for image data). However, the design of hidden layers is more nuanced and can impact the model’s performance, training time, and ability to generalize. Researchers have developed heuristics to help determine:
+
+- The number of hidden layers,
+- The number of neurons in each hidden layer, and
+- Trade-offs between complexity and computational requirements.
